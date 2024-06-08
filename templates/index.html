@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      #image {
+        display: none;
+      }
+
+      .image-preview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .image-preview img {
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function previewImage(event) {
+        const input = event.target;
+        const label = document.getElementById('image-label');
+        const file = input.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const imgElement = document.createElement('img');
+            imgElement.src = e.target.result;
+            imgElement.classList.add('w-[100px]', 'h-auto', 'mb-2');
+
+            label.innerHTML = '';
+            label.appendChild(imgElement);
+
+            const textElement = document.createElement('h1');
+            textElement.textContent = 'Click to upload or Drop files here';
+            textElement.classList.add('text-white', 'text-center');
+            label.appendChild(textElement);
+          }
+          reader.readAsDataURL(file);
+        }
+      }
+    </script>
+    <title>KINSHIP RECOGNITION</title>
+  </head>
+  <body>
+    <section class="h-screen w-full relative bg-[#000811]">
+        <img class="absolute top-0 left-0 h-svh w-svw object-contain blur-sm" src="{{ url_for('static', filename='images/bg.jpg') }}" alt="background" />
+        <nav class="relative w-full h-[70px] bg-black border-b-2 flex items-center justify-center">
+            <h1 class="text-white text-3xl font-semibold">KINSHIP RECOGNITION</h1>
+        </nav>
+        <section class="relative w-full">  
+            <div class="my-[80px] flex items-center justify-center gap-[70px]">
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/Azli.jpg') }}" alt="Azli family" >
+                    <h1 class="text-white text-xl font-semibold text-center">AZLI <br> FAMILY</h1>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/Obama.jpg') }}" alt="Azli family" >
+                    <h1 class="text-white text-xl font-semibold text-center">OBAMA <br> FAMILY</h1>
+                </div>
+
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/Kapoor.jpg') }}" alt="Azli family" >
+                    <h1 class="text-white text-xl font-semibold text-center">KAPOOR <br> FAMILY</h1>
+                </div>
+
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/British.jpg') }}" alt="Azli family" >
+                    <h1 class="text-white text-xl font-semibold text-center">JIANG <br> FAMILY</h1>
+                </div>
+
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/FordPresident.jpg') }}" alt="Azli family" >
+                    <h1 class="text-white text-xl font-semibold text-center">FORDFAMILY <br> FAMILY</h1>
+                </div>
+            </div>
+            <div class="my-20 flex items-center justify-center gap-[100px]">
+                <form method="post" action="/"  enctype="multipart/form-data" class="w-[300px] h-[150px]">
+                  <div class="w-full border-2 border-white p-5" style="border-style: dashed;">
+                    <input type="file" name="image" id="image" onchange="previewImage(event)">
+                  <label id="image-label" class="w-full h-full flex flex-col items-center justify-center image-preview" for="image">
+                    <img class="w-[100px] h-fit" src="{{ url_for('static', filename='images/Upload.png') }}" alt="upload" >
+                  <h1 class="text-white text-center">Click to upload or Drop files here</h1>
+                </label>
+              </div>  
+                    <button class="w-full h-[50px] my-5 bg-blue-900 text-white font-semibold" type="submit">Classify</button>
+                </form>
+
+
+                {% if data.isPredicted %}
+
+                <a href="/{{ data.prediction }}">
+
+                  <div class="flex flex-col items-center justify-center gap-3">
+                    <img class="h-[100px] w-[100px] rounded-[50%]" src="{{ url_for('static', filename='images/' + data.prediction + '.jpg') }}" alt="Azli family">
+                  <h1 class="text-white text-xl font-semibold text-center">{{ data.prediction }}</h1>
+                </div>
+              </a>
+                <table class="bg-white shadow-lg min-w-[400px]">
+                  <thead class="bg-blue-900 ">
+                    <tr>
+                      <th class="py-2 px-4 border-b border-black text-white text-center font-bold">Family</th>
+                      <th class="py-2 px-4 border-b border-black text-white text-center font-bold">Probability Score</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-blue-600">
+                    {% for family, score in data.probabilities.items() %}
+                    <tr>
+                      <td class="py-2 px-4 border-b border-black text-white text-center">{{ family }}</td>
+                      <td class="py-2 px-4 border-b border-black text-white text-center">{{ score }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </section>
+    </section>
+  </body>
+</html>

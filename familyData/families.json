@@ -1,0 +1,76 @@
+{
+    "AZLI": {
+      "Name": "AZLI FAMILY",
+      "Number_of_Family": 6,
+      "Names_of_Each_Family_Members": [
+        "Norazli Bin Othman",
+        "Norazizah Binti Sharif",
+        "Norsyahirah Binti Norazli",
+        "Norsyadiyah Binti Norazli",
+        "Norafifah Binti Norazli",
+        "Nor Najwa Binti Norazli"
+      ],
+      "Address": "No 10, Lorong 1, Jln TTP3, Taman Tambak Paya Permai, Ayer Molek, 75460, Malacca",
+      "Country": "Malaysia",
+      "Emergency_Contact_Information": "+60-104218533"
+    },
+    "OBAMA": {
+      "Name": "OBAMA FAMILY",
+      "Number_of_Family": 4,
+      "Names_of_Each_Family_Members": [
+        "Barack Obama",
+        "Michelle Obama",
+        "Malia Ann Obama",
+        "Natasha Obama"
+      ],
+      "Address": "42 Old Forge Rd Pine Grove, Pennsylvania (PA), 17963",
+      "Country": "United States",
+      "Emergency_Contact_Information": "+1 256-730-0775"
+    },
+
+    "KAPOOR": {
+      "Name": "KAPOOR FAMILY",
+      "Number_of_Family": 4,
+      "Names_of_Each_Family_Members": [
+        "Randhir Kapoor",
+        "Babita Kapoor",
+        "Karishma Kapoor",
+        "Kareena Kapoor"
+      ],
+      "Address": "S-297, Vidhyanagari Marg, Kalina, Santacruz(e), Mumbai",
+      "Country": "India",
+      "Emergency_Contact_Information": "+91-1190329409"
+    },
+
+    "BRITISH": {
+      "Name": "BRITISH FAMILY",
+      "Number_of_Family": 5,
+      "Names_of_Each_Family_Members": [
+        "Prince Philippe",
+        "Queen Elizabeth II",
+        "Prince Charles",
+        "Prince Andrew",
+        "Prince Edward",
+        "Princess Anne"
+      ],
+      "Address": "64 Marlborough Crescen, South Stainley",
+      "Country": "United Kingdom",
+      "Emergency_Contact_Information": "+44-9531-295-459"
+    },
+    
+    "FORDPRESIDENT": {
+      "Name": "FORDPRESIDENT FAMILY",
+      "Number_of_Family": 5,
+      "Names_of_Each_Family_Members": [
+        "Gerald Rudolph Ford",
+        "Betty Ford",
+        "Michael Gerald Ford",
+        "Steven Ford",
+        "Susan Ford"
+      ],
+      "Address": "1430 Formula Lane, Dallas, Texas",
+      "Country": "United States",
+      "Emergency_Contact_Information": "+1 469-654-0073"
+    }
+}
+  

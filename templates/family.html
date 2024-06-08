@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{data.Name}}</title>
+
+  </head>
+  <body>
+    <section class="h-screen w-full relative bg-[#000811]">
+        <img class="absolute top-0 left-0 h-svh w-svw object-contain" src="{{ url_for('static', filename='images/bg.jpg') }}" alt="background" />
+        <nav class="relative w-full h-[70px] bg-black border-b-2 flex items-center justify-center">
+            <h1 class="text-white text-3xl font-semibold">{{data.Name}}</h1>
+        </nav>
+        <section class="relative w-full">  
+            <div class="h-full w-full my-5 p-10">
+                <h1 class="text-white text-xl my-5" ><strong class="font-bold">Number Of Family Members : &nbsp;</strong> {{data.Number_of_Family}}</h1>
+                <h1 class="text-white text-xl my-5" ><strong class="font-bold">Names Of Each Family Members : </strong> </h1>
+                {% for member in data.Names_of_Each_Family_Members %}
+                    <h1 class="text-white text-xl my-2 px-12" >&nbsp; - &nbsp;&nbsp;{{member}}</h1>
+                {% endfor %}
+                <h1 class="text-white text-xl my-5" ><strong class="font-bold">Address : &nbsp;</strong> {{data.Address}} , {{data.Country}}</h1>
+                <h1 class="text-white text-xl my-5" ><strong class="font-bold">Emergency Contact Number : &nbsp;</strong> {{data.Emergency_Contact_Information}}</h1>
+            </div>
+        </section>
+    </section>
+  </body>
+</html>
